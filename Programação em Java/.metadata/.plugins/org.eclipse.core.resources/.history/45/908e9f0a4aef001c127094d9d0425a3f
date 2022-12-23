@@ -1,0 +1,86 @@
+package app;
+
+import java.util.ArrayList;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+
+
+public abstract class Evento {
+	private String nome;
+	private String endereco;
+	private String categoria;
+	private Date horarioInicio;
+	private Date horarioTermino;
+	private String descricao;
+	private SimpleDateFormat formatarHorario;
+	private ArrayList<Usuario> eventoUsuario;
+	
+	
+	//Construtor
+	public Evento() {
+		this.eventoUsuario = new ArrayList<>();
+		this.formatarHorario = new SimpleDateFormat("hh:mm");
+	}
+	
+
+	//Getters e Setters
+	public String getNome() {
+		return nome;
+	}
+	public void setNome(String nome) {
+		this.nome = nome;
+	}
+	public String getEndereco() {
+		return endereco;
+	}
+	public void setEndereco(String endereco) {
+		this.endereco = endereco;
+	}
+	
+	
+	public String getDescricao() {
+		return descricao;
+	}
+	public void setDescricao(String descricao) {
+		this.descricao = descricao;
+	}
+	
+	//Adicionar Horario de inicio
+	public void setHorarioInicio(String horaInicio) throws ParseException {
+		this.horarioInicio = formatarHorario.parse(horaInicio);
+	}
+
+	public Date getHorarioInicio() {
+		return horarioInicio;
+	}
+	
+	//Adicionar horário de término
+	public void setHorarioTermino(String horaTermino) throws ParseException  {
+		this.horarioTermino = formatarHorario.parse(horaTermino);
+	}
+	public Date getHorarioTermino() {
+		return horarioTermino;
+	}
+
+	
+	
+	public ArrayList<Usuario> getEventoUsuario() {
+		return eventoUsuario;
+	}
+
+
+	public void adicionarUsuarioEvento(Usuario usuario) {
+		eventoUsuario.add(usuario);
+	}
+	
+	@Override
+	public String toString() {
+		return "Nome do Evento: " + this.nome + "\nEndereço: " + this.endereco + "\nCategoria: " + this.categoria + "\nHorário de início: " + this.horarioInicio.getHours() + 
+				" : " + this.horarioInicio.getMinutes() + "\nHorário de saída: "+ this.horarioTermino.getHours() + " : " + this.horarioTermino.getMinutes()
+				+ "\nDescrição: " + this.descricao + "\nUsuarios participando: "+ this.eventoUsuario;
+	}
+	
+
+	
+}

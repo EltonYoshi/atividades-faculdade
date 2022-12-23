@@ -1,0 +1,27 @@
+package app;
+
+import java.util.Scanner;
+
+public class CadastroUsuario {
+	private Usuario usuario;
+	private Scanner sc;
+	
+	public CadastroUsuario() {
+		this.usuario = new Usuario();
+		this.sc = new Scanner(System.in);
+	}
+	
+	public void telaCadastroDoEvento() {
+		System.out.println("Nome do Evento: ");
+		usuario.setNome(sc.nextLine());
+		
+		System.out.println("Endereço: ");
+		usuario.setEmail(sc.nextLine());
+		
+		System.out.println("Categoria: ");
+		usuario.setCpf(Double.parseDouble(sc.nextLine()));
+	
+		ArmazenamentoUsuario armazenamento = new ArmazenamentoUsuario();
+		armazenamento.armazenarUsuario(usuario);
+	}
+}

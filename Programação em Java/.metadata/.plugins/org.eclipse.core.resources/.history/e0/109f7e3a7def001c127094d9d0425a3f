@@ -1,0 +1,34 @@
+package app;
+
+import java.util.Scanner;
+
+public class FuncaoMostrarEventosPrivados {
+	private ArmazenamentoEventosPrivados eventos;
+	private Scanner sc;
+	private double cpf;
+	
+	public FuncaoMostrarEventosPrivados(ArmazenamentoEventosPrivados eventos) {
+		this.eventos = eventos;
+		this.sc = new Scanner(System.in);
+	}
+	
+	public void mostrarEventosDoUsuario() {
+		System.out.println("Digite seu CPF: ");
+		this.cpf = sc.nextDouble();
+		
+		System.out.println("Você está participando dos eventos abaixo:\n");
+		
+		for(int i = 0; i < eventos.getArmazenamento().size(); i++) {
+			if(eventos.getArmazenamento().get(i).getEventoUsuario().size() > 0) {
+				for(int j = 0; j < eventos.getArmazenamento().get(i).getEventoUsuario().size(); j++) {
+					
+					if(this.cpf == eventos.getArmazenamento().get(i).getEventoUsuario().get(j).getCpf()) {
+						System.out.println("Evento - " + (i+1) + "\n" + eventos.getArmazenamento().get(i).getNome());
+					}
+					
+				}	
+				
+			}
+			
+		}
+}

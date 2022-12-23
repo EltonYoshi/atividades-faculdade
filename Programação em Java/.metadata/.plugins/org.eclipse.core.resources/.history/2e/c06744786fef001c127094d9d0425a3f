@@ -1,0 +1,23 @@
+package app;
+
+import java.util.Calendar;
+public class FuncaoEventosDoDia {
+	private ArmazenamentoEventosPublicos eventos;
+	private Calendar agora;
+	
+	public FuncaoEventosDoDia(ArmazenamentoEventosPublicos eventos) {
+		this.eventos = eventos;
+		this.agora = Calendar.getInstance();
+	}
+	
+	public void eventosOcorridos() {
+		
+		
+		
+	}
+	
+	
+	
+	
+	
+}

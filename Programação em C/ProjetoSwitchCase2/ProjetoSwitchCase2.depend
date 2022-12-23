@@ -1,0 +1,5 @@
+# depslib dependency file v1.0
+1648042363 source:/home/yoshi/Documentos/aulas da faculdade/ProjetoSwitchCase2/main.c
+	<stdio.h>
+	<stdlib.h>
+

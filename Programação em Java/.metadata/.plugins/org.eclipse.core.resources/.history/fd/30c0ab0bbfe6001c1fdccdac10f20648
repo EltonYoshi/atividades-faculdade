@@ -1,0 +1,51 @@
+import java.util.ArrayList;
+
+public abstract class Usuario {
+	private String nome;
+	private String email;
+	private ArrayList<Eventos> armazenamentoEvento;	
+	
+
+	
+	public Usuario() {
+		
+		this.armazenamentoEvento = new ArrayList<>();
+	}
+	
+	public String getNome() {
+		return nome;
+	}
+	public void setNome(String nome) {
+		this.nome = nome;
+	}
+	public int getCpf() {
+		return cpf;
+	}
+	public void setCpf(int cpf) {
+		this.cpf = cpf;
+	}
+	public String getEmail() {
+		return email;
+	}
+	public void setEmail(String email) {
+		this.email = email;
+	}
+
+	public void armazenarEvento(Eventos evento) {
+		armazenamentoEvento.add(evento);
+	}
+	
+	
+	@Override
+	public String toString() {
+		return "Usuario: " + nome + "\nCpf: " + cpf + "\nEmail: " + email + "\nEventos: " + armazenamentoEvento;
+	}
+	
+	
+	
+	
+	
+	
+	
+	
+}

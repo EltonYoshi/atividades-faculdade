@@ -1,0 +1,23 @@
+package app;
+
+import java.util.ArrayList;
+
+public class ArmazenamentoEventos {
+	private ArrayList<EventoPublico> armazenamento;
+		
+	public ArmazenamentoEventos() {
+		this.armazenamento = new ArrayList<>();
+	}
+		
+	
+	
+	
+	public ArrayList<EventoPublico> getArmazenamento() {
+		return armazenamento;
+	}
+
+	public void armazenarEvento(EventoPublico evento) {
+		armazenamento.add(evento);
+	}
+		
+}

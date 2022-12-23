@@ -1,0 +1,4 @@
+
+public class pessoaFisica extends Usuario {
+	private int cpf;
+}

@@ -1,0 +1,41 @@
+package app;
+import java.io.File;
+import java.io.IOException;
+import java.util.Scanner;
+import java.util.ArrayList;
+
+public class main {
+
+	public static void main(String[] args) {
+		
+		File arquivo = new File("C:\\medicamentos.csv");
+		
+		ArrayList<String>linhasDoArquivo = new ArrayList<>();
+		Scanner sc = new Scanner(System.in);
+		
+		
+		try {
+			sc = new Scanner(arquivo);
+			while(sc.hasNextLine()) {
+				linhasDoArquivo.add(sc.nextLine());
+				
+			}
+			
+			
+		}
+		catch (IOException e){
+			
+		}
+		
+		for (int i = 0; i <= linhasDoArquivo.size(); i++) {
+			String[]campos= linhasDoArquivo.get(i).split(";");
+			
+		}
+		
+		System.out.println(linhasDoArquivo.get(1));
+		
+		
+		
+	}
+
+}

@@ -1,0 +1,18 @@
+package app;
+
+public class EventoPublico extends Evento{
+
+	public EventoPublico() {
+		super("público");
+		
+	}
+	
+	
+	@Override
+	public String toString() {
+		return "Nome do Evento: " + getNome() + "\nEndereço: " + getEndereco() + "\nCategoria: " + getCategoria() + "\nData: " + getDataFormatada() + getData().getDate()+ "\nHorário de início: " + 
+	getHorarioInicioFormatado() + "\nHorário de saída: "+ getHorarioTerminoFormatado()
+				+ "\nDescrição: " + getDescricao() + "\nUsuarios participando: "+ getEventoUsuario();
+	}
+	
+}

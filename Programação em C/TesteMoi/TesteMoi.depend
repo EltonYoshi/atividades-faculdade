@@ -1,0 +1,5 @@
+# depslib dependency file v1.0
+1648652157 source:/home/yoshi/Documentos/aulas da faculdade/TesteMoi/main.c
+	<stdio.h>
+	<stdlib.h>
+

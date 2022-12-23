@@ -1,0 +1,32 @@
+package app;
+
+import java.util.Scanner;
+public class CadastroEvento {
+	private Evento evento;
+	private Scanner sc;
+	
+	public CadastroEvento() {
+		this.evento = new Evento();
+		this.sc = new Scanner(System.in);
+	}
+	
+	public void telaCadastroDoEvento() {
+		System.out.println("Nome do Evento: ");
+		evento.setNome(sc.nextLine());
+		
+		System.out.println("Endereço: ");
+		evento.setEndereco(sc.nextLine());
+		
+		System.out.println("Categoria: ");
+		evento.setCategoria(sc.nextLine());
+		
+		System.out.println("Horario: ");
+		evento.setHorario(Integer.parseInt(sc.nextLine()));
+		
+		System.out.println("Descrição: ");
+		evento.setDescricao(sc.nextLine());
+		
+		ArmazenamentoEventos armazenamento = new ArmazenamentoEventos();
+		armazenamento.armazenarEvento(evento);
+	}
+}

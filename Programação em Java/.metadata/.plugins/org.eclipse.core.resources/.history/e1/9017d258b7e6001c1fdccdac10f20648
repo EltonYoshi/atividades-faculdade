@@ -1,0 +1,13 @@
+
+public class Main {
+
+	public static void main(String[] args) {
+		Eventos evento1 = new Eventos();
+		
+		evento1.setNome("E3");
+		evento1.dizerEvento();
+		
+		
+	}
+
+}

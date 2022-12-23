@@ -1,0 +1,50 @@
+package app;
+
+import java.util.Scanner;
+public class MenuOpcaoController {
+	private Scanner sc;
+	private FuncaoCadastroEvento cadastroEvento;
+	private FuncaoCadastroUsuario cadastroUsuario;
+		
+	//Construtor
+	public MenuOpcaoController() {
+		this.sc = new Scanner(System.in);
+		this.cadastroEvento = new FuncaoCadastroEvento();
+		this.cadastroUsuario = new FuncaoCadastroUsuario();
+	}
+	
+	
+	
+	public void efetuaEscolha(int escolha) {
+		switch(escolha){
+		case 1:
+			cadastroUsuario.telaCadastroDoUsuario();
+			
+			
+			break;
+		case 2:
+			cadastroEvento.telaCadastroDoEvento();
+			break;
+		case 3:
+			FuncaoParticiparEvento participarEvento = new FuncaoParticiparEvento(cadastroEvento.getArmazenamentoDeEventos(),
+					cadastroUsuario.getArmazenamentoDoUsuario());
+			
+			for(int i = 0; i < cadastroEvento.getArmazenamentoDeEventos().getArmazenamento().size(); i++ ) {
+				System.out.println((i+1) + " - " + cadastroEvento.getArmazenamentoDeEventos().getArmazenamento().get(i));
+			}
+			
+			
+			
+			break;
+		case 5:
+			System.out.println(cadastroEvento.getArmazenamentoDeEventos().getArmazenamento());
+			break;
+		default:
+			System.out.println("ERRO");
+			break;
+		}
+		
+	}
+
+
+}

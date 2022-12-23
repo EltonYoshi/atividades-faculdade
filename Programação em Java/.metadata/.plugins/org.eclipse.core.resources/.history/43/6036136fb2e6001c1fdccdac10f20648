@@ -1,0 +1,13 @@
+
+public class Eventos {
+	public String nome;
+	public String endereco;
+	private int horario;
+	private String categoria;
+	private String descricao;
+	
+	
+	
+	
+	
+}

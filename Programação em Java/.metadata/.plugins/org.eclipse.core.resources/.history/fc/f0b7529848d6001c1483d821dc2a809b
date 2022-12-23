@@ -1,0 +1,33 @@
+package app;
+
+import java.util.Scanner;
+public class Main {
+
+	public static void main(String[] args) {
+		Scanner sc = new Scanner(System.in);
+		
+		listaDeCompras l1 = new listaDeCompras();
+		int op;
+		do {
+			System.out.println("Digite");
+			System.out.println("1 - Cadastrar Produtos");
+			System.out.println("2 - Vizualizar Produtos");
+			System.out.println("3 - Ver quantidade de Produtos");
+			System.out.println("4 - Apagar todos os Produtos");
+			System.out.println("5 - Ver total de compras");
+			System.out.println("0 - Sair");
+			op = sc.nextInt();
+			
+			switch(op) {
+			case 1:
+				Produto p1 = new Produto();
+				System.out.println("Digite o nome do produto: ");
+				p1.setNome(sc.nextLine());
+			}
+			
+		}while(op != 0);
+		
+		
+	}
+
+}

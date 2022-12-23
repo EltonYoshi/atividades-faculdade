@@ -1,0 +1,33 @@
+package app;
+
+import java.util.Scanner;
+public class FuncaoEventosDoUsuario {
+	private ArmazenamentoEventos eventos;
+	private ArmazenamentoUsuario usuarios;
+	private Scanner sc;
+	
+	public FuncaoEventosDoUsuario(ArmazenamentoEventos eventos, ArmazenamentoUsuario usuarios) {
+		this.eventos = eventos;
+		this.usuarios = usuarios;
+		this.sc = new Scanner(System.in);
+	}
+	
+	public void mostrarEventosDoUsuario() {
+		System.out.println("Digite seu cpf");
+		double cpf = sc.nextDouble();
+		
+		for(int i = 0; i < eventos.getArmazenamento().size();i++) {
+			if(eventos.getArmazenamento().get(i).getEventoUsuario().size() > 0) {
+				if(cpf == eventos.getArmazenamento().get(i).getEventoUsuario().get(i).getCpf()) {
+					System.out.println(eventos.getArmazenamento().get(i).getNome());
+				}
+			}
+			
+		}
+	
+	}
+	
+	public void cancelarParticipacao() {
+		
+	}
+}

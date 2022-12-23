@@ -1,0 +1,30 @@
+package app;
+
+import java.util.Scanner;
+public class MenuOpcao {
+	private Scanner sc;
+	private MenuOpcaoController controller;
+
+	public MenuOpcao() {
+		this.sc = new Scanner(System.in);
+		this.controller = new MenuOpcaoController();
+	}
+	
+	
+	public void mostrarMenuOpcao(){
+		int escolha = 0;
+		do {
+			System.out.println("DIGITE:");
+			System.out.println("1 - Cadastrar Usuario");
+			System.out.println("2 - Cadastrar Evento");
+			System.out.println("3 - Cadastrar-se em um evento");
+			System.out.println("4 - Ver Eventos que você está cadastrado");
+			System.out.println("5 - Ver Todos os Eventos");
+			System.out.println("0 - Sair");
+			System.out.println("Digite sua escolha: ");
+			escolha = sc.nextInt();
+			controller.efetuaEscolha(escolha);
+			
+		}while(escolha != 0);
+	}
+}

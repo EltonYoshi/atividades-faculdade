@@ -1,0 +1,4 @@
+
+public class pessoaJuridica extends Usuario{
+	private int cnpj;
+}

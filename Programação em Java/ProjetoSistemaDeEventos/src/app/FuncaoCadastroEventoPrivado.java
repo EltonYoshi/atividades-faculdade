@@ -1,0 +1,130 @@
+package app;
+
+import java.text.ParseException;
+import java.util.Scanner;
+
+public class FuncaoCadastroEventoPrivado {
+	private ArmazenamentoEventosPrivados armazenamentoDeEventos;
+	private Scanner sc;
+	
+	//Método Construtor
+	public FuncaoCadastroEventoPrivado() {
+		this.armazenamentoDeEventos = new ArmazenamentoEventosPrivados();
+		this.sc = new Scanner(System.in);
+	}
+	
+	//Método que verifica se a hora de início do evento foi digitada com a formatação correta
+	public void verificacaoHoraInicio(EventoPrivado evento) {
+		boolean feito = false;
+		while(!feito) {
+			try {
+				evento.setHorarioInicio(sc.nextLine());
+				feito = true;
+			} catch (ParseException e) {
+				System.out.println("Utilize a notação horas:minutos");
+			}
+		}
+		
+	}
+	
+	//Método que verifica se a hora de término do evento foi digitada com a formatação correta
+	public void verificacaoHoraTermino(EventoPrivado evento) {
+		boolean feito = false;
+		while(!feito) {
+			try {
+				evento.setHorarioTermino(sc.nextLine());
+				feito = true;
+			} catch (ParseException e) {
+				System.out.println("Utilize a notação: horas:minutos, por exemplo, 21:34");
+			}
+		}
+	}
+	
+	//Método que verifica se a data do evento foi digitada com a formatação correta
+	public void verificacaoData(EventoPrivado evento) {
+		boolean feito = false;
+		while(!feito) {
+			try {
+				evento.setData(sc.nextLine());
+				feito = true;
+			} catch (ParseException e) {
+				
+				System.out.println("Utilize a notação: dia/mês/ano, por exemplo, 24/09/2003");
+			}
+		}
+		
+		
+	}
+	
+	//Método que retorna um questionário para o usuário cadastrar um evento PRIVADO
+	public void telaCadastroDoEvento(){
+		EventoPrivado evento = new EventoPrivado();
+		
+		System.out.println("Nome do Evento: ");
+		evento.setNome(sc.nextLine());
+		
+		
+		System.out.println("Endereço: ");
+		evento.setEndereco(sc.nextLine());
+		
+		System.out.println("Data: ");
+		verificacaoData(evento);
+		
+		System.out.println("Horario de Inicio: ");
+		verificacaoHoraInicio(evento);
+		
+		
+		System.out.println("Horario de Término: ");
+		verificacaoHoraTermino(evento);
+		
+		
+		System.out.println("Descrição: ");
+		evento.setDescricao(sc.nextLine());
+		
+		//Método que recebe o objeto evento cadastrado e o armazena
+		armazenamentoDeEventos.armazenarEvento(evento);
+		
+	}
+	
+	//Método que retorna o objeto de armazenamento do eventos PÚBLICOS
+	public ArmazenamentoEventosPrivados getArmazenamentoDeEventos() {
+		return armazenamentoDeEventos;
+	}
+	
+	//Método que mostra todos os usuários cadastrados no sistema
+	public void mostrarUsuario(ArmazenamentoUsuario usuarios) {
+		for(int i = 0; i < usuarios.getArmazenamento().size(); i++) {
+			System.out.println("Usuário - " + (i+1) + "\n" + usuarios.getArmazenamento().get(i).getNome() +
+					"\n" + usuarios.getArmazenamento().get(i).getEmail() + "\n");
+		}
+	}
+	
+	//Método que permite o usuário convidar outros usuários para seu evento PRIVADO
+	public void cadastrarConvidado(ArmazenamentoUsuario usuarios, ArmazenamentoEventosPrivados eventos) {
+		if (usuarios.getArmazenamento().size() > 0) {
+			System.out.println("\n CONVIDE USUÁRIOS: ");
+			mostrarUsuario(usuarios);
+			
+			System.out.println("Usuário escolhido: ");
+			int escolha = Integer.parseInt(sc.nextLine()) - 1;
+			
+			for(int i = 0; i < eventos.getArmazenamento().size(); i++) {
+				
+				for(int j = 0; j < usuarios.getArmazenamento().size(); j++) {
+					if(escolha == j) {
+						eventos.getArmazenamento().get(i).adicionarUsuarioEvento(usuarios.getArmazenamento().get(j));
+					}
+					
+				}
+			}
+		}else {
+			System.out.println("Não há nenhum usuário cadastrado no sistema!");
+		}
+	}
+	
+	
+
+
+	
+	
+}

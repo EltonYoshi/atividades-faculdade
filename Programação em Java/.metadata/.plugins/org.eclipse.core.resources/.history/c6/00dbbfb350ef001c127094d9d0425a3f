@@ -1,0 +1,64 @@
+package app;
+
+import java.text.ParseException;
+import java.util.Scanner;
+
+public class FuncaoCadastroEventoPrivado {
+private ArmazenamentoEventosPrivados armazenamentoDeEventos;
+
+	
+	private Scanner sc;
+	
+	public FuncaoCadastroEventoPrivado() {
+		this.armazenamentoDeEventos = new ArmazenamentoEventosPrivados();
+		this.sc = new Scanner(System.in);
+	}
+	
+	public void mostrarUsuario(Usuario usuarios) {
+		
+	}
+	
+	
+	
+	public void telaCadastroDoEvento(){
+		EventoPrivado evento = new EventoPrivado();
+		System.out.println("Nome do Evento: ");
+		evento.setNome(sc.nextLine());
+		
+		System.out.println("Endereço: ");
+		evento.setEndereco(sc.nextLine());
+		
+		System.out.println("Horario de Inicio: ");
+		try {
+			evento.setHorarioInicio(sc.nextLine());
+			
+		} catch (ParseException e) {
+			System.out.println("Deu Erro");
+		}
+		
+		System.out.println("Horario de Término: ");
+		try {
+			evento.setHorarioTermino(sc.nextLine());
+			
+		} catch (ParseException e) {
+			System.out.println("Deu Erro");
+		}
+		
+		System.out.println("Descrição: ");
+		evento.setDescricao(sc.nextLine());
+		
+		
+		
+		armazenamentoDeEventos.armazenarEvento(evento);
+		System.out.println(armazenamentoDeEventos.getArmazenamento());
+	}
+
+	
+	
+	public ArmazenamentoEventosPrivados getArmazenamentoDeEventos() {
+		return armazenamentoDeEventos;
+	}
+
+	
+	
+}

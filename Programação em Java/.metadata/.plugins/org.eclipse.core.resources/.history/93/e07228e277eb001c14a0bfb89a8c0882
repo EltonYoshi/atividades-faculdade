@@ -1,0 +1,39 @@
+package app;
+
+import java.util.Scanner;
+public class FuncaoParticiparEvento {
+	private Scanner sc;
+	private ArmazenamentoEventos eventos;
+	private ArmazenamentoUsuario usuarios;
+	
+	public FuncaoParticiparEvento(ArmazenamentoEventos eventos, ArmazenamentoUsuario usuarios) {
+		this.eventos = new ArmazenamentoEventos();
+		this.usuarios = new ArmazenamentoUsuario();
+		this.sc = new Scanner(System.in);
+	}
+	public void mostrarEventos() {
+		
+		for(int i = 0; i < eventos.getArmazenamento().size(); i++ ) {
+			System.out.println((i+1) + " - " + eventos.getArmazenamento().get(i));
+		}
+	}
+
+	
+	public void escolherEvento() {
+		System.out.println("Evento escolhido: ");
+		int escolha = sc.nextInt() - 1;
+		
+		System.out.println("Digite seu CPF: ");
+		double cpf = sc.nextDouble();
+		int posicao = 0;
+		
+		for(int i = 0; i < usuarios.getArmazenamento().size(); i++) {
+			if(cpf == usuarios.getArmazenamento().get(i).getCpf()) {
+				posicao = i;
+			}
+		}
+		for(int i = 0; i < )
+	
+
+	}
+}

@@ -1,0 +1,5 @@
+# depslib dependency file v1.0
+1648596325 source:/home/yoshi/Documentos/aulas da faculdade/ProjetoMenu/main.c
+	<stdio.h>
+	<stdlib.h>
+

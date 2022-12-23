@@ -1,0 +1,6 @@
+# depslib dependency file v1.0
+1649204723 source:/home/yoshi/Documentos/aulas da faculdade/ProjetoMatriz/main.c
+	<stdio.h>
+	<stdlib.h>
+	<locale.h>
+

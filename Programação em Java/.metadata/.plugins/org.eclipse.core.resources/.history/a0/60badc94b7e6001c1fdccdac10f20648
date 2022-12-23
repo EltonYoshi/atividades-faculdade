@@ -1,0 +1,28 @@
+
+import java.util.Scanner;
+public class Main {
+
+	public static void main(String[] args) {
+		Eventos evento = new Eventos();
+		Usuario usuario = new Usuario();
+		armazenamentoGeral armazenamentoUsuario = new armazenamentoGeral();
+		Scanner sc = new Scanner(System.in);
+		
+		System.out.println("Nome: ");
+		usuario.setNome(sc.nextLine());
+		
+		System.out.println("Cpf: ");
+		usuario.setCpf(sc.nextInt());
+		
+		System.out.println("Endereço do evento: ");
+		evento.setEndereco(sc.nextLine());
+		
+		usuario.armazenarEvento(evento);
+		armazenamentoUsuario.armazenarUsuario(usuario);
+		
+		System.out.println(usuario);
+		
+		
+	}
+
+}

@@ -1,0 +1,21 @@
+package app;
+
+/*Essa classe possui a função de herdar e definir um valor para o atributo "categoria" da superclasse.
+ * Nesse caso a categoria será definida como PÚBLICA*/
+
+public class EventoPublico extends Evento{
+
+	public EventoPublico() {
+		super("público");
+		
+	}
+	
+	//Retorna os atributos da superclasse junto com a categorização diferenciada, PÚBLICA
+	@Override
+	public String toString() {
+		return "Nome do Evento: " + getNome() + "\nEndereço: " + getEndereco() + "\nCategoria: " + getCategoria() + "\nData: " + getDataFormatada() + "\nHorário de início: " + 
+	getHorarioInicioFormatado() + "\nHorário de saída: "+ getHorarioTerminoFormatado()
+				+ "\nDescrição: " + getDescricao() + "\nUsuarios participando: "+ getEventoUsuario();
+	}
+	
+}

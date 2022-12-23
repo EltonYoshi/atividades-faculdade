@@ -1,0 +1,52 @@
+package app;
+import java.time.Period;
+import java.util.Date;
+
+public class FuncaoEventosDoDia {
+	private ArmazenamentoEventosPublicos eventos;
+	private Date agora;
+	
+	public FuncaoEventosDoDia(ArmazenamentoEventosPublicos eventos) {
+		this.eventos = eventos;
+		this.agora = new Date();
+	}
+	
+	public void eventosOcorridos() {
+		System.out.println("EVENTOS OCORRIDOS: ");
+		for(int i = 0; i < eventos.getArmazenamento().size(); i++) {
+			if(eventos.getArmazenamento().get(i).DataCompletaTermino().before(agora)) {
+				System.out.println(eventos.getArmazenamento().get(i));
+			}
+		}
+		
+		
+		
+	}
+	public void eventosOcorrer() {
+		System.out.println("EVENTOS QUE VÃO OCORRER: ");
+		for(int i = 0; i < eventos.getArmazenamento().size(); i++) {
+			if(eventos.getArmazenamento().get(i).DataCompletaInicio().after(agora)) {
+				System.out.println(eventos.getArmazenamento().get(i));
+			}
+		}
+		
+		
+		
+	}
+	public void eventosOcorrendo() {
+		System.out.println("EVENTOS QUE ESTÃO OCORRENDO: ");
+		for(int i = 0; i < eventos.getArmazenamento().size(); i++) {
+			if(eventos.getArmazenamento().get(i).DataCompletaTermino().before(agora) && 
+					eventos.getArmazenamento().get(i).DataCompletaInicio().after(agora)) {
+				System.out.println(eventos.getArmazenamento().get(i));
+			}
+		}
+		
+		
+		
+	}
+	
+	
+	
+	
+}

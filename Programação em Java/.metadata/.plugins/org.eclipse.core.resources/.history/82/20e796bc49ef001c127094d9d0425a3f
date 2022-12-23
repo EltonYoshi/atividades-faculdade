@@ -1,0 +1,10 @@
+package app;
+
+public class EventoPrivado extends Evento {
+
+	public EventoPrivado() {
+		super("privado");
+		
+	}
+
+}

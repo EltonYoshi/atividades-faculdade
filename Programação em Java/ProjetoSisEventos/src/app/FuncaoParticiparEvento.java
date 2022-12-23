@@ -1,0 +1,49 @@
+package app;
+
+import java.util.Scanner;
+public class FuncaoParticiparEvento {
+	private Scanner sc;
+	private ArmazenamentoEventosPublicos eventos;
+	private ArmazenamentoUsuario usuarios;
+	
+	public FuncaoParticiparEvento(ArmazenamentoEventosPublicos eventos, ArmazenamentoUsuario usuarios) {
+		this.eventos = eventos;
+		this.usuarios = usuarios;
+		this.sc = new Scanner(System.in);
+	}
+	public void mostrarEventos() {
+		
+		for(int i = 0; i < eventos.getArmazenamento().size(); i++ ) {
+			System.out.println("Evento"+ " - " + (i+1) + "\n" + eventos.getArmazenamento().get(i) + "\n");
+		}
+	}
+	
+	public int usuarioPosicao(double cpf) {
+		int posicao = 0;
+		
+		for(int i = 0; i < usuarios.getArmazenamento().size(); i++) {
+			if(cpf == usuarios.getArmazenamento().get(i).getCpf()) {
+				posicao = i;
+			}
+		}
+		return posicao;
+	}
+	
+	public void escolherEvento() {
+		System.out.println("Evento escolhido: ");
+		int escolha = sc.nextInt() - 1;
+		
+		System.out.println("Digite seu CPF: ");
+		double cpf = sc.nextDouble();
+		
+		int posicao = usuarioPosicao(cpf);
+		
+		for(int i = 0; i < eventos.getArmazenamento().size(); i++) {
+			if(escolha == i) {
+				eventos.getArmazenamento().get(i).adicionarUsuarioEvento(usuarios.getArmazenamento().get(posicao));
+			}
+		}
+	
+
+	}
+}

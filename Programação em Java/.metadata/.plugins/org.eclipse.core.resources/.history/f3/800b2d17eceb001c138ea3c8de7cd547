@@ -1,0 +1,77 @@
+package app;
+
+import java.util.ArrayList;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+
+
+public class Evento {
+	private String nome;
+	private String endereco;
+	private String categoria;
+	private Date horario;
+	private String descricao;
+	private SimpleDateFormat formatarHorario;
+	private ArrayList<Usuario> eventoUsuario;
+	
+	
+	//Construtor
+	public Evento() {
+		this.eventoUsuario = new ArrayList<>();
+		this.formatarHorario = new SimpleDateFormat("hh:mm");
+	}
+	
+
+	//Getters e Setters
+	public String getNome() {
+		return nome;
+	}
+	public void setNome(String nome) {
+		this.nome = nome;
+	}
+	public String getEndereco() {
+		return endereco;
+	}
+	public void setEndereco(String endereco) {
+		this.endereco = endereco;
+	}
+	public String getCategoria() {
+		return categoria;
+	}
+	public void setCategoria(String categoria) {
+		this.categoria = categoria;
+	}
+	public String getDescricao() {
+		return descricao;
+	}
+	public void setDescricao(String descricao) {
+		this.descricao = descricao;
+	}
+	
+	//Adicionar Horario
+	
+	public void setHorario(String horas) throws ParseException {
+		this.horario = formatarHorario.parse(horas);
+	}
+	
+	
+	
+	public ArrayList<Usuario> getEventoUsuario() {
+		return eventoUsuario;
+	}
+
+
+	public void adicionarUsuarioEvento(Usuario usuario) {
+		eventoUsuario.add(usuario);
+	}
+	
+	@Override
+	public String toString() {
+		return "Nome do Evento: " + this.nome + "\nEndereço: " + this.endereco + "\nCategoria: " + this.categoria + "\nHorário: " + this.horario.getHours() + 
+				" : " + this.horario.getMinutes() + "\nDescrição: " + this.descricao + "\nUsuarios participando: "+ this.eventoUsuario;
+	}
+	
+
+	
+}

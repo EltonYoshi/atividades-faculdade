@@ -1,0 +1,16 @@
+package app;
+
+public class Funcionalidades {
+	public void procurarNome(String medicamento, ListaMedicamentos l1) {
+	
+			
+			for (int i = 0; i < l1.mostrarNumeroDeMedicamentos(); i++) {
+				//para comparar o conteúdo de duas Strings é preciso usar o método equals
+				//usar == faz ele comparar duas Strings de mesma referência de variável
+				if(medicamento.contains(l1.mostrarMedicamento(i).getNome()) ) {
+					System.out.println(l1.mostrarMedicamento(i).getNome() + " " + l1.mostrarMedicamento(i).getCnpj() + " " +
+							l1.mostrarMedicamento(i).getLaboratorio() + " " + l1.mostrarMedicamento(i).getCodigo());
+				}
+			}
+		}		
+}

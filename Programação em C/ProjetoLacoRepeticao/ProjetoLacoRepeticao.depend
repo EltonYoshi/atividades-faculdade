@@ -1,0 +1,5 @@
+# depslib dependency file v1.0
+1647996369 source:/home/yoshi/Documentos/aulas da faculdade/ProjetoLacoRepeticao/main.c
+	<stdio.h>
+	<stdlib.h>
+

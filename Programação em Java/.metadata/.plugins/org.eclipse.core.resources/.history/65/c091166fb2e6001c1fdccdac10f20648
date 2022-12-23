@@ -1,0 +1,11 @@
+
+public class Main {
+
+	public static void main(String[] args) {
+		Eventos evento1 = new Eventos();
+		
+		evento1.nome = "ELton";
+		System.out.println(evento1.nome);
+	}
+
+}

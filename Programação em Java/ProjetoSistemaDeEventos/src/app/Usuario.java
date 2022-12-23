@@ -1,0 +1,38 @@
+package app;
+
+public class Usuario {
+	private String nome;
+	private double cpf;
+	private String email;
+
+	
+	
+	//Getters e Setters
+	public String getNome() {
+		return nome;
+	}
+	public void setNome(String nome) {
+		this.nome = nome;
+	}
+	public double getCpf() {
+		return cpf;
+	}
+	public void setCpf(double cpf) {
+		this.cpf = cpf;
+	}
+	public String getEmail() {
+		return email;
+	}
+	public void setEmail(String email) {
+		this.email = email;
+	}
+
+	//ToString que retorna as informações armazenadas nos atributos de Usuário
+	@Override
+	public String toString() {
+		return "Nome do Usuário: " + this.nome + "\nCPF: " + this.cpf + "\nEmail: " + this.email;
+	}
+	
+	
+	
+}

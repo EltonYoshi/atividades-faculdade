@@ -1,0 +1,15 @@
+
+import java.util.ArrayList;
+public class armazenamentoGeral {
+	private ArrayList<Usuario> armazenamentoUsuario;
+
+	public armazenamentoGeral() {
+		this.armazenamentoUsuario = new ArrayList<>();
+	}
+	
+	
+	
+	
+	
+	
+}

@@ -1,0 +1,24 @@
+package app;
+import java.time.Period;
+import java.util.Date;
+
+public class FuncaoEventosDoDia {
+	private ArmazenamentoEventosPublicos eventos;
+	private Date agora;
+	
+	public FuncaoEventosDoDia(ArmazenamentoEventosPublicos eventos) {
+		this.eventos = eventos;
+		this.agora = new Date();
+	}
+	
+	public void eventosOcorridos() {
+		System.out.println(agora);
+		
+		
+	}
+	
+	
+	
+	
+	
+}

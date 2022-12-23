@@ -1,0 +1,15 @@
+package app;
+import java.util.Date;
+import java.util.Scanner;
+public class Main {
+
+	public static void main(String[] args) {
+		Scanner sc = new Scanner(System.in);
+		Date c = new Date();
+		System.out.println("Digite as horas");
+		c.setHours(sc.nextInt());
+		System.out.println(c.getHours());
+		
+	}
+
+}

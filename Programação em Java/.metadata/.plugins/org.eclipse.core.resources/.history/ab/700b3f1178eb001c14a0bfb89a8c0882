@@ -1,0 +1,60 @@
+package app;
+
+import java.util.ArrayList;
+
+public class Evento {
+	private String nome;
+	private String endereco;
+	private String categoria;
+	private int horario;
+	private String descricao;
+	private ArrayList<Evento> eventoUsuario;
+	
+	
+	//Construtor
+	public Evento() {
+		this.eventoUsuario = new ArrayList<>();
+	}
+	
+
+	//Getters e Setters
+	public String getNome() {
+		return nome;
+	}
+	public void setNome(String nome) {
+		this.nome = nome;
+	}
+	public String getEndereco() {
+		return endereco;
+	}
+	public void setEndereco(String endereco) {
+		this.endereco = endereco;
+	}
+	public String getCategoria() {
+		return categoria;
+	}
+	public void setCategoria(String categoria) {
+		this.categoria = categoria;
+	}
+	public int getHorario() {
+		return horario;
+	}
+	public void setHorario(int horario) {
+		this.horario = horario;
+	}
+	public String getDescricao() {
+		return descricao;
+	}
+	public void setDescricao(String descricao) {
+		this.descricao = descricao;
+	}
+	
+	@Override
+	public String toString() {
+		return "Nome do Evento: " + this.nome + "\nEndereço: " + this.endereco + "\nCategoria: " + this.categoria + "\nHorário: " + this.horario
+				+ "\nDescrição: " + this.descricao ;
+	}
+	
+
+	
+}

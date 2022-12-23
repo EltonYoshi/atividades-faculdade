@@ -1,0 +1,13 @@
+package app;
+
+public class usaFuncionario {
+
+	public static void main(String[] args) {
+		Funcionario f1 = new Funcionario();
+		
+		f1.setNome("Moises Bosta");
+		
+		System.out.println(f1.getNome());
+	}
+
+}

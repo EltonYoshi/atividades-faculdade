@@ -1,0 +1,121 @@
+package app;
+
+import java.io.IOException;
+import java.util.Scanner;
+public class MenuOpcaoController {
+	private Scanner sc;
+	private FuncaoCadastroEventoPublico cadastroEvento;
+	private FuncaoCadastroEventoPrivado cadastroEventoPrivado;
+	private FuncaoCadastroUsuario cadastroUsuario;
+		
+	//Construtor
+	public MenuOpcaoController() {
+		this.sc = new Scanner(System.in);
+		this.cadastroEvento = new FuncaoCadastroEventoPublico();
+		this.cadastroUsuario = new FuncaoCadastroUsuario();
+		this.cadastroEventoPrivado = new FuncaoCadastroEventoPrivado();
+	}
+	
+	
+	public void escolhaPrivado() {
+		
+		int esc = 0;
+		do {
+			esc = 0;
+			cadastroEventoPrivado.cadastrarConvidado(cadastroUsuario.getArmazenamentoDoUsuario(), 
+					cadastroEventoPrivado.getArmazenamentoDeEventos());
+			System.out.println("Deseja convidar outro usuário?");
+			System.out.println("1 - Sim");
+			System.out.println("0 - Não");
+			System.out.println("Escolha: \n");
+			esc = Integer.parseInt(sc.nextLine());
+		}while(esc == 1);
+	}
+	
+
+	public void efetuaEscolha(int escolha) {
+		switch(escolha){
+		case 1:
+			cadastroUsuario.telaCadastroDoUsuario();
+			
+			
+			break;
+		case 2:
+			try
+		    {
+		        final String os = System.getProperty("os.name");
+
+		        if (os.contains("Windows"))
+		        {
+		            Runtime.getRuntime().exec("cls");
+		        }
+		        else
+		        {
+		            Runtime.getRuntime().exec("clear");
+		        }
+		    }
+		    catch (final Exception e)
+		    {
+		        //  Handle any exceptions.
+		    }
+			
+			double op = 0;
+			do {
+				op = 0;
+				System.out.println("Qual categoria de evento você deseja?");
+				System.out.println("1 - Público");
+				System.out.println("0 - Privado");
+				System.out.println("Escolha:");
+				op = Integer.parseInt(sc.nextLine());
+				
+			}while(op < 0 || op > 1 );
+			
+			
+			if(op == 1) {
+				
+				cadastroEvento.telaCadastroDoEvento();
+			} else if(op == 0) {
+				
+				
+				cadastroEventoPrivado.telaCadastroDoEvento();
+				escolhaPrivado();
+				
+			}
+			
+			
+			break;
+		case 3:
+			FuncaoParticiparEvento participarEvento = new FuncaoParticiparEvento(cadastroEvento.getArmazenamentoDeEventos(),
+					cadastroUsuario.getArmazenamentoDoUsuario());
+			
+			participarEvento.mostrarEventos();
+			participarEvento.escolherEvento();
+			break;
+		case 4:
+			FuncaoEventosDoUsuario eventosDoUsuario = new FuncaoEventosDoUsuario(cadastroEvento.getArmazenamentoDeEventos());
+			
+			eventosDoUsuario.mostrarEventosDoUsuario();
+			eventosDoUsuario.cancelarParticipacao();
+			break;
+		case 5:
+			FuncaoMostrarEventosPrivados mostrarEventosPrivados = new FuncaoMostrarEventosPrivados(cadastroEventoPrivado.getArmazenamentoDeEventos());
+			mostrarEventosPrivados.mostrarEventosDoUsuario();
+			
+			break;
+		case 6:
+			FuncaoMostrarEventosPublicos mostrarEventosPublicos = new FuncaoMostrarEventosPublicos(cadastroEvento.getArmazenamentoDeEventos());
+			
+			mostrarEventosPublicos.eventosOcorridos();
+			mostrarEventosPublicos.eventosOcorrer();
+			mostrarEventosPublicos.eventosOcorrendo();
+			
+			break;
+		default:
+			System.out.println("ERRO");
+			break;
+		}
+		
+	}
+
+
+}

@@ -1,0 +1,52 @@
+package app;
+
+import java.util.Calendar;
+public class FuncaoEventosDoDia {
+	private ArmazenamentoEventosPublicos eventos;
+	private Calendar agora;
+	
+	public FuncaoEventosDoDia(ArmazenamentoEventosPublicos eventos) {
+		this.eventos = eventos;
+		this.agora = Calendar.getInstance();
+	}
+	
+	public void eventosOcorridos() {
+		System.out.println("====== EVENTOS QUE JÁ PASSARAM ======");
+		
+		for(int i = 0; i < eventos.getArmazenamento().size(); i++) {
+			if(eventos.getArmazenamento().get(i).getHorarioTermino().getHours() <= agora.get(Calendar.HOUR_OF_DAY) &&
+					eventos.getArmazenamento().get(i).getHorarioTermino().getMinutes() <= agora.get(Calendar.MINUTE) ||
+					eventos.getArmazenamento().get(i).getHorarioTermino().getHours() < agora.get(Calendar.HOUR_OF_DAY) &&
+					eventos.getArmazenamento().get(i).getHorarioTermino().getMinutes() >= agora.get(Calendar.MINUTE)) {
+				
+				System.out.println("Nome do evento: " + eventos.getArmazenamento().get(i).getNome() + "\nEndereço: " + 
+						eventos.getArmazenamento().get(i).getEndereco() + "\nDescrição: " +
+							eventos.getArmazenamento().get(i).getDescricao());
+			}
+		}
+		
+	}
+	
+	public void eventosAcontecendoAgora() {
+		System.out.println("====== EVENTOS QUE ESTÃO OCORRENDO AGORA ======");
+		
+		for(int i = 0; i < eventos.getArmazenamento().size(); i++) {
+			if((eventos.getArmazenamento().get(i).getHorarioInicio().getHours() >= agora.get(Calendar.HOUR_OF_DAY) &&
+					eventos.getArmazenamento().get(i).getHorarioInicio().getMinutes() >= agora.get(Calendar.MINUTE)) &&
+					(eventos.getArmazenamento().get(i).getHorarioInicio().getHours() < 
+					eventos.getArmazenamento().get(i).getHorarioTermino().getHours()) &&
+					eventos.getArmazenamento().get(i).getHorarioInicio().getMinutes() < 
+					eventos.getArmazenamento().get(i).getHorarioTermino().getMinutes()) {
+				
+				
+				System.out.println("Nome do evento: " + eventos.getArmazenamento().get(i).getNome() + "\nEndereço: " + 
+					eventos.getArmazenamento().get(i).getEndereco() + "\nDescrição: " +
+						eventos.getArmazenamento().get(i).getDescricao());
+			}
+		}
+		
+		System.out.println("======================================");
+	}
+	
+	
+}

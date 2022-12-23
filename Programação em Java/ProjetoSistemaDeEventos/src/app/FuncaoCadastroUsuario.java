@@ -1,0 +1,41 @@
+package app;
+
+import java.util.Scanner;
+
+public class FuncaoCadastroUsuario {
+	private ArmazenamentoUsuario armazenamentoDoUsuario;
+	private Scanner sc;
+	
+	//Método Construtor
+	public FuncaoCadastroUsuario() {
+		this.armazenamentoDoUsuario = new ArmazenamentoUsuario();
+		this.sc = new Scanner(System.in);
+	}
+	
+	//Método que retorna um questionário para o usuário cadastrar seus dados no sistema
+	public void telaCadastroDoUsuario() {
+		Usuario usuario = new Usuario();
+		System.out.println("Nome do Usuario: ");
+		usuario.setNome(sc.nextLine());
+		
+		System.out.println("Email: ");
+		usuario.setEmail(sc.nextLine());
+		
+		System.out.println("CPF: ");
+		usuario.setCpf(Double.parseDouble(sc.nextLine()));
+	
+		//Método que recebe o objeto usuário cadastrado e o armazena
+		armazenamentoDoUsuario.armazenarUsuario(usuario);
+		
+	}
+
+	//Método que retorna o objeto de armazenamento do usuário
+	public ArmazenamentoUsuario getArmazenamentoDoUsuario() {
+		return armazenamentoDoUsuario;
+	}
+
+	
+
+	
+}
+

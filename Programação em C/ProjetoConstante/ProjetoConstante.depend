@@ -1,0 +1,5 @@
+# depslib dependency file v1.0
+1648599234 source:/home/yoshi/Documentos/aulas da faculdade/ProjetoConstante/main.c
+	<stdio.h>
+	<stdlib.h>
+

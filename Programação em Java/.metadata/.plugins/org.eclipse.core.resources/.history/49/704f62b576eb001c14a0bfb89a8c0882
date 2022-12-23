@@ -1,0 +1,26 @@
+package app;
+
+import java.util.Scanner;
+public class FuncaoParticiparEvento {
+	private Scanner sc;
+	
+	public FuncaoParticiparEvento() {
+		this.sc = new Scanner(System.in);
+	}
+	public void mostrarEventos(ArmazenamentoEventos eventos) {
+		
+		for(int i = 0; i < eventos.getArmazenamento().size(); i++ ) {
+			System.out.println((i+1) + " - " + eventos.getArmazenamento().get(i));
+		}
+	}
+	
+	public void escolherEvento(ArmazenamentoUsuario usuario) {
+		System.out.println("Evento escolhido: ");
+		int escolha = sc.nextInt();
+		
+		System.out.println("Digite seu CPF: ");
+		double cpf = sc.nextDouble();
+		
+
+	}
+}

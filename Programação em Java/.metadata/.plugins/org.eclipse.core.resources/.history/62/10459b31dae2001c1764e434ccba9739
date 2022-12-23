@@ -1,0 +1,33 @@
+package app;
+
+public class Main {
+
+	public static void main(String[] args) {
+		
+		int produto = 0;
+		String[] lojaA = {"TV 40pol", "Playstation 4", "HD Externo", "Papel A4", "Mouse",
+		"Impressora", "Teclado gamer", "Cabo HDMI"};
+
+		String[] lojaB = {"Playstation 4", "Papel A4", "Tablet", "HD Externo", "Scanner", "Cabo HDMI", "Cabo de rede"};
+
+		System.out.println("=== Produtos que foram vendidos na loja A mas que não foram vendidos na loja B===");
+		    for(int i = 0; i < lojaB.length + 1; i++){
+		    	System.out.println(i);
+		        for(int j = 0; j < lojaB.length; j++) {
+		        	
+		        	if(lojaA[i] == lojaB[j]){
+		        		System.out.println(lojaA[i]);
+		        		lojaA[i] = null;
+		        		
+			        }
+		     
+		        }
+
+		    }
+		    System.out.println(lojaA);
+
+		
+		
+	}
+
+}

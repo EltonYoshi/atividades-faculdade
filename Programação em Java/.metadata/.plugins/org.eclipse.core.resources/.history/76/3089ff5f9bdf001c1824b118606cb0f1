@@ -1,0 +1,48 @@
+package app;
+import java.io.File;
+import java.io.IOException;
+import java.util.Scanner;
+import java.util.ArrayList;
+
+
+
+
+public class main {
+
+	public static void main(String[] args) {
+		
+		File arquivo = new File("C:\\medicamentos.csv");
+		MedicamentoConverter bosta = new MedicamentoConverter();
+		ArrayList<Medicamento>retorno = new ArrayList<>();
+		Scanner sc = new Scanner(System.in);
+		
+
+		
+		try {
+			sc = new Scanner(arquivo);
+			while(sc.hasNextLine()) {
+				String linhasDoArquivo = sc.nextLine();
+				retorno.add(bosta.converteCSVFuncionario(linhasDoArquivo));
+				
+			}
+			
+			
+		}
+		catch (IOException e){
+			
+		}
+
+
+		
+		
+
+		System.out.println(retorno.get(1));
+		
+		
+
+		
+		
+		
+	}
+
+}

@@ -1,0 +1,17 @@
+package app;
+
+public class teste {
+
+	public static void main(String[] args) {
+		//Animal é uma classe abstrata, logo não pode ser instanciada
+		//Animal a1 = new Animal();
+		Gato meuGato = new Gato();
+		Cachorro meuCachorro = new Cachorro();
+		meuGato.dormir();
+		meuCachorro.dormir();
+
+		
+
+	}
+
+}

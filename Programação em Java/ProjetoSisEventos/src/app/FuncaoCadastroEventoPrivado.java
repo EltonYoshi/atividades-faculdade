@@ -1,0 +1,126 @@
+package app;
+
+import java.text.ParseException;
+import java.util.Scanner;
+
+public class FuncaoCadastroEventoPrivado {
+private ArmazenamentoEventosPrivados armazenamentoDeEventos;
+
+	
+	private Scanner sc;
+	
+	public FuncaoCadastroEventoPrivado() {
+		this.armazenamentoDeEventos = new ArmazenamentoEventosPrivados();
+		this.sc = new Scanner(System.in);
+	}
+	
+	public void mostrarUsuario(ArmazenamentoUsuario usuarios) {
+		for(int i = 0; i < usuarios.getArmazenamento().size(); i++) {
+			System.out.println("Usuário - " + (i+1) + "\n" + usuarios.getArmazenamento().get(i).getNome() +
+					"\n" + usuarios.getArmazenamento().get(i).getEmail() + "\n");
+		}
+	}
+	
+	
+	
+	public void verificacaoHoraInicio(EventoPrivado evento) {
+		boolean feito = false;
+		while(!feito) {
+			try {
+				evento.setHorarioInicio(sc.nextLine());
+				feito = true;
+			} catch (ParseException e) {
+				System.out.println("Utilize a notação horas:minutos");
+			}
+		}
+		
+	}
+	
+	public void verificacaoHoraTermino(EventoPrivado evento) {
+		boolean feito = false;
+		while(!feito) {
+			try {
+				evento.setHorarioTermino(sc.nextLine());
+				feito = true;
+			} catch (ParseException e) {
+				System.out.println("Utilize a notação: horas:minutos, por exemplo, 21:34");
+			}
+		}
+	}
+	
+	
+	public void verificacaoData(EventoPrivado evento) {
+		boolean feito = false;
+		while(!feito) {
+			try {
+				evento.setData(sc.nextLine());
+				feito = true;
+			} catch (ParseException e) {
+				
+				System.out.println("Utilize a notação: dia/mês/ano, por exemplo, 24/09/2003");
+			}
+		}
+		
+		
+	}
+	
+	
+	public void telaCadastroDoEvento(){
+		EventoPrivado evento = new EventoPrivado();
+		
+		System.out.println("Nome do Evento: ");
+		evento.setNome(sc.nextLine());
+		
+		
+		System.out.println("Endereço: ");
+		evento.setEndereco(sc.nextLine());
+		
+		System.out.println("Data: ");
+		verificacaoData(evento);
+		
+		System.out.println("Horario de Inicio: ");
+		verificacaoHoraInicio(evento);
+		
+		
+		System.out.println("Horario de Término: ");
+		verificacaoHoraTermino(evento);
+		
+		
+		System.out.println("Descrição: ");
+		evento.setDescricao(sc.nextLine());
+		
+		armazenamentoDeEventos.armazenarEvento(evento);
+		
+	}
+	
+	public void cadastrarConvidado(ArmazenamentoUsuario usuarios, ArmazenamentoEventosPrivados eventos) {
+		if (usuarios.getArmazenamento().size() > 0) {
+			System.out.println("\n CONVIDE USUÁRIOS: ");
+			mostrarUsuario(usuarios);
+			
+			System.out.println("Usuário escolhido: ");
+			int escolha = Integer.parseInt(sc.nextLine()) - 1;
+			
+			for(int i = 0; i < eventos.getArmazenamento().size(); i++) {
+				
+				for(int j = 0; j < usuarios.getArmazenamento().size(); j++) {
+					if(escolha == j) {
+						eventos.getArmazenamento().get(i).adicionarUsuarioEvento(usuarios.getArmazenamento().get(j));
+					}
+					
+				}
+			}
+		}else {
+			System.out.println("Não há nenhum usuário cadastrado no sistema!");
+		}
+	}
+	
+	
+	
+	public ArmazenamentoEventosPrivados getArmazenamentoDeEventos() {
+		return armazenamentoDeEventos;
+	}
+
+	
+	
+}
